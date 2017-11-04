@@ -80,7 +80,7 @@
      lineinfile: dest=/etc/php/7.0/apache2/php.ini regexp="^; max_input_vars = 1000"  line="max_input_vars = 10000" state=present
      notify: restart apache
    - name: change config9
-     lineinfile: dest=/etc/php/7.0/apache2/php.ini regexp="^upload_max_filesize = 2M"  line="pload_max_filesize = 64M" state=present
+     lineinfile: dest=/etc/php/7.0/apache2/php.ini regexp="^upload_max_filesize = 2M"  line="upload_max_filesize = 64M" state=present
      notify: restart apache
 
    - name: copy config
