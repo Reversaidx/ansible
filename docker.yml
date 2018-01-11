@@ -1,0 +1,11 @@
+- name: docker
+  hosts: ubuntu2 ubuntu3
+  tasks:
+   - name: update
+     apt: upgrade=dist update_cache=yes cache_valid_time=3600
+   - name: install repo
+     script: repo.sh
+     register: kurwa
+   - debug: msg="{{ kurwa.stdout }}"
+   - name: install docker 
+     apt: name=docker-ce state=latest update_cache=yes
